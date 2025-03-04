@@ -6,7 +6,10 @@ export default function Home() {
   return (
   <div className="flex ">
     <PromptHistory/>
+
+      
     <App_Input/>
+
   </div>
   );
 }
