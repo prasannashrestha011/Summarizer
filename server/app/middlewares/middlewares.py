@@ -9,7 +9,7 @@ class AuthMiddlware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
         try:
             # excluding /auth route
-            if request.url.path.startswith("/auth"):
+            if request.url.path.startswith("/auth") or request.url.path.startswith("/"):
                 return await call_next(request)
 
             auth_header = request.headers.get("Authorization")

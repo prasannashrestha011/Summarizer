@@ -26,6 +26,7 @@ async def summarized_text(request: Request):
     body = await request.json()
     text = body.get("text")
     key = "summary_text"
+
     summarized_text = await query_hugging_face(
         SUMMARIZATION_MODEL_URL,
         payload={

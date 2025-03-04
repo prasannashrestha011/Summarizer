@@ -12,3 +12,4 @@ alembic
 asyncpg
 dotenv
 python-multipart
+httpx
