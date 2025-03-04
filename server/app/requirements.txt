@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+sqlalchemy
+sqlmodel
+psycopg2
+pydantic
+pydantic[email]
+python-dotenv
+pyjwt
+passlib ##hashing
+alembic
+asyncpg
+dotenv
+python-multipart
