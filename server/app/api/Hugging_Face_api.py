@@ -19,7 +19,6 @@ async def query_hugging_face(model_url: str, payload: dict, key: str):
             print(response.status_code)
             if response.status_code == 200:
                 print("Response generated....")
-                print(response.json())
                 return response.json()[0][key]
             else:
                 error_details = traceback.format_exc()

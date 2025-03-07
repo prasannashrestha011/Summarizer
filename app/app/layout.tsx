@@ -1,8 +1,7 @@
 
 
 import "./globals.css";
-
-
+import AuthProvider from "./app_components/auth/AuthProvider";
 
 
 export default function RootLayout({
@@ -11,7 +10,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+   <AuthProvider>
+     <html lang="en">
       <head>
         <title>Summarizer</title>
       </head>
@@ -21,5 +21,6 @@ export default function RootLayout({
         {children}
       </body>
     </html>
+   </AuthProvider>
   );
 }
