@@ -2,7 +2,10 @@ import Typewriter from 'typewriter-effect';
 
 export const  RenderSummarizedResponse = ({ text }: { text: string }) => {
     return (
-        <div>
+        <div className='flex gap-4'>
+            <img src='/icons/ai.png' className='w-8 h-8' draggable='false'/>
+            <div className='flex flex-col'>
+            <span className='font-bold'>Paraphased text:</span>
             <Typewriter
                 options={{
                     strings: text,
@@ -12,6 +15,7 @@ export const  RenderSummarizedResponse = ({ text }: { text: string }) => {
                     cursor:"",
                 }}
             />
+            </div>
         </div>
     );
 };

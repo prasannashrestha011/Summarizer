@@ -4,7 +4,7 @@ interface ResponseText{
 }
 export async function SubmitText(text:string):Promise<string>{
    try{
-    const response=await axios.post<ResponseText>("http://127.0.0.1:8000/summary",
+    const response=await axios.post<ResponseText>("http://127.0.0.1:8000/paraphase",
     {text:text},{
       headers:{
         "Content-Type":"application/json"
