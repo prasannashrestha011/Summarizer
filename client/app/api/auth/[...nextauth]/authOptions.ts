@@ -10,6 +10,7 @@ if(!clientID|| !clientSecret || !nextAuthSecret){
 declare module 'next-auth'{
     interface Session{
         accessToken?:string
+        userId?:string
     }
 }
 const authOptions:NextAuthOptions={
@@ -25,14 +26,17 @@ const authOptions:NextAuthOptions={
     ],
     secret:nextAuthSecret,
     callbacks:{
-        async jwt({token,account}){
+        async jwt({token,account,user}){
+          
             if(account){
                 token.accessToken=account.access_token
+                token.id=user.id
             }
             return token
         },
         async session({session,token}){
             session.accessToken=token.accessToken as string
+            session.userId=token.id as string
             return session
         }
     }

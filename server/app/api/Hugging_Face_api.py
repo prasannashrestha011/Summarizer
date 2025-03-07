@@ -25,7 +25,7 @@ async def query_hugging_face(model_url: str, payload: dict, key: str):
                 print("Error details->", error_details)
                 return "Error, Unable to process the request"
     except httpx.RequestError as e:
-        # Handle network-related errors (e.g., connection errors)
+        # Handle network-related errors
         error_details = traceback.format_exc()
         print("Network error details:", error_details)
         return {"error": f"Network error: {str(e)}"}

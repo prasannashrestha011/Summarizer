@@ -7,9 +7,7 @@ const page = () => {
   return (
     <div className="flex ">
       
-    <PromptHistory/>
-
-      
+    <PromptHistory/>  
     <App_Input/>
 
   </div>

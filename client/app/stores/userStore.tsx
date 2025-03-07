@@ -1,13 +1,18 @@
 import {create} from 'zustand';
 
 interface User{
-    id: string;
     name?: string | null;
     email?: string | null;
     image?: string | null;
     accessToken?: string;
 }
-export const useUserStore = create((set) => ({
+interface UserStore{
+    isAuthenticated:boolean 
+    user:User|null
+    setUser:(user:User)=>void
+    clearUser:()=>void
+}
+export const useUserStore = create<UserStore>((set) => ({
     isAuthenticated: false,
     user: null,
     setUser: (user:User) => set({ isAuthenticated: true, user }),
