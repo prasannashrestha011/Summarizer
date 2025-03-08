@@ -1,4 +1,6 @@
-![Alt Text](client/public/images/machine-learning.png)
+<p align="center">
+  <img src="client/public/images/machine-learning.png" alt="Alt Text">
+</p>
 
 # Echo Bot
 
