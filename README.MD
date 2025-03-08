@@ -1,4 +1,4 @@
-![Alt Text](client/public/images/machine-learning.png.png)
+![Alt Text](client/public/images/machine-learning.png)
 
 # Echo Bot
 
