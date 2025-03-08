@@ -1,3 +1,4 @@
+import traceback
 from fastapi import Request, HTTPException
 from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
@@ -13,8 +14,9 @@ class AuthMiddlware(BaseHTTPMiddleware):
                 return await call_next(request)
 
             auth_header = request.headers.get("Authorization")
-
+            print("Auth token", auth_header)
             if not auth_header or not auth_header.startswith("Bearer "):
+
                 return JSONResponse(
                     status_code=403, content={"error": "Missing authorized token"}
                 )
@@ -27,9 +29,10 @@ class AuthMiddlware(BaseHTTPMiddleware):
                 return JSONResponse(
                     status_code=403, content={"error": is_verified["error"]}
                 )
-
+            print("User payload->", is_verified["payload"])
             return await call_next(request)
 
         except Exception as e:
-
+            error_details = traceback.format_exc()
+            print("Error details: ", error_details)
             return JSONResponse(content={"error": f"{str(e)}"}, status_code=500)

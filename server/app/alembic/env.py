@@ -3,6 +3,7 @@ from logging.config import fileConfig
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from Models import UserModels, OAuthUserModel
+from Models.HistoryModel import HistoryModel, ConversationMessage
 from sqlmodel import SQLModel
 from alembic import context
 

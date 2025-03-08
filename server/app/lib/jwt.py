@@ -54,25 +54,20 @@ class JwtService:
     @staticmethod
     def verify_token(token: str):
         try:
-            payload = jwt.decode(
-                token, JwtService.SecretKey, algorithms=[JwtService.Algorithm]
-            )
+            payload = jwt.decode(token, JwtService.SecretKey, algorithms=["HS256"])
 
             exp_time = payload.get("exp")
-            iat = payload.get("iat")
+
             if exp_time:
                 readable_exp_time = datetime.fromtimestamp(
                     exp_time, tz=timezone.utc
                 ).strftime("%Y-%m-%d %H:%M:%S UTC")
-                readable_iat_time = datetime.fromtimestamp(
-                    iat, tz=timezone.utc
-                ).strftime("%Y-%m-%d %H:%M:%S UTC")
+
                 readable_current_time = datetime.fromtimestamp(
                     datetime.now().timestamp(), tz=timezone.utc
                 )
                 print("current time", readable_current_time)
                 print("expire time", readable_exp_time)
-                print("issued time", readable_iat_time)
 
             return {"payload": payload, "error": None}
 

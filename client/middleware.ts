@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function middleware(req:NextRequest){
    
     const token=await getToken({req,secret:process.env.NEXT_AUTH_SECRET})
-   
+    console.log("Token",token)
     if(token&& token.accessToken){
         return NextResponse.next()
     }else{

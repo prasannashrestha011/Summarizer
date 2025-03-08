@@ -1,3 +1,4 @@
+from typing import List
 from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 
@@ -48,6 +49,7 @@ async def summarized_text(request: Request):
 async def paraphase_text(request: Request):
     body = await request.json()
     text = body.get("text")
+
     key = "summary_text"
     paraphased_text = await query_hugging_face(
         PARAPHRASE_MODEL_URL,
@@ -64,4 +66,5 @@ async def paraphase_text(request: Request):
         },
         key=key,
     )
+
     return JSONResponse(content={"text": paraphased_text})

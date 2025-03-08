@@ -8,19 +8,21 @@ import { useUserStore } from '@/app/stores/userStore'
 
 const AuthBtn = () => {
     const {data:session}=useSession()
-
-  
+    const router=useRouter()
+useEffect(()=>{
+  if (session) {  
+    console.log(session.accessToken)
+  }
+},[session])
   return (
     <div className=' bg-center bg-cover h-screen w-screen flex justify-center items-center'>
-      {session?.accessToken?(
-        <p>...Navigating to the home page</p>
-      ):(
+    
 <button 
         className='bg-blue-700 text-blue-50 font-serif text-xl rounded-md mt-52'
-        onClick={()=>signIn(undefined,{callbackUrl:"/"})}>
+        onClick={()=>signIn('google',{callbackUrl:"/"})}>
             Sign in with Github
         </button>
-      )}
+     
     </div>
   )
 }

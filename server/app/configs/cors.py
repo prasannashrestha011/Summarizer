@@ -11,3 +11,4 @@ def add_cors_middleware(app: FastAPI):
         allow_methods=["*"],
         allow_headers=["*"],
     )
+    print("Cors configured")
