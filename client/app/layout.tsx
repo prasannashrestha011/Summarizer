@@ -16,7 +16,7 @@ export default function RootLayout({
         <title>Summarizer</title>
       </head>
       <body
-        
+        className="font-poppins"
       >
         {children}
       </body>

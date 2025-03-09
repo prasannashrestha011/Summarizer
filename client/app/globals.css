@@ -18,11 +18,17 @@
   --font-poppins:'poppins',sans-serif;
   --font-Vt323:'vt323',sans-serif;
 }
-
+body{
+  font-family: 'poppins';
+}
+*{
+  font-family: 'poppins',sans-serif;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #212429;
     --foreground: #ededed;
+   
   }
 }
 
